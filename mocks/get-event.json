@@ -1,0 +1,10 @@
+{
+	"pathParameters": {
+		"date_machine": "4b272e60-a815-11ea-92ab-992e5cf110cb"
+	},
+	"requestContext": {
+		"identity": {
+			"cognitoIdentityId": "USER-SUB-1234"
+		}
+	}
+}
