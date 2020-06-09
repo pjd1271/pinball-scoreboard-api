@@ -1,7 +1,7 @@
 {
-	"body": "{\"players\":[\"Joe\",\"Sue\",\"Jane\",\"Bob\"],\"score\":[12034520,89765310,4324870,7892340]}",
+	"body": "{\"player1\":\"Joe\",\"player2\":\"Sue\",\"player3\":\"Betty\",\"player4\":\"Bill\",\"score1\":12034520,\"score2\":89765310,\"score3\":4324870,\"score4\":7892340}",
 	"pathParameters": {
-		"date_machine": "4b272e60-a815-11ea-92ab-992e5cf110cb"
+		"date_machine": "1591730455063_The-Addams-Family"
 	},
 	"requestContext": {
 		"identity": {

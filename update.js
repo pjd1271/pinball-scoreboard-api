@@ -3,7 +3,10 @@ import dynamoDb from './libs/dynamodb-lib';
 
 export const main = handler(async (event, context) => {
 	const data = JSON.parse(event.body);
-	const highestScore = data.scores ? Math.max.apply(Math, data.scores) : null;
+
+	const players = [data.player1 || null, data.player2 || null, data.player3 || null, data.player4 || null];
+	const scores = [data.score1, data.score2, data.score3, data.score4];
+	const highestScore = Math.max.apply(Math, scores);
 	const params = {
 		TableName: process.env.tableName,
 		// 'Key' defines the partition key and sort key of the item to be updated
@@ -17,8 +20,8 @@ export const main = handler(async (event, context) => {
 		// 'ExpressionAttributeValues' defines the value in the update expression
 		UpdateExpression: 'SET players = :players, scores = :scores, highestScore = :highestScore',
 		ExpressionAttributeValues: {
-			':players': data.players || null,
-			':scores': data.scores || null,
+			':players': players,
+			':scores': scores,
 			':highestScore': highestScore,
 		},
 		// 'ReturnValues' specifies if and how to return the item's attributes,

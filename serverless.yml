@@ -14,7 +14,7 @@ custom:
     # commands. Or fallsback to what we have set in the provider section.
     stage: ${opt:stage, self:provider.stage}
     # Set the table name here so we can use it while testing locally
-    tableName: ${self:custom.stage}-games
+    tableName: games
 
 provider:
     name: aws
@@ -103,15 +103,14 @@ functions:
                   method: delete
                   cors: true
                   authorizer: aws_iam
-
 # Create our resources with separate CloudFormation templates
-resources:
-    # API Gateway Errors
-    - ${file(resources/api-gateway-errors.yml)}
-    # DynamoDB
-    - ${file(resources/dynamodb-table.yml)}
-    # S3
-    - ${file(resources/s3-bucket.yml)}
-    # Cognito
-    - ${file(resources/cognito-user-pool.yml)}
-    - ${file(resources/cognito-identity-pool.yml)}
+# resources:
+#     # API Gateway Errors
+#     - ${file(resources/api-gateway-errors.yml)}
+#     # DynamoDB
+#     - ${file(resources/dynamodb-table.yml)}
+#     # S3
+#     - ${file(resources/s3-bucket.yml)}
+#     # Cognito
+#     - ${file(resources/cognito-user-pool.yml)}
+#     - ${file(resources/cognito-identity-pool.yml)}
