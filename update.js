@@ -4,8 +4,10 @@ import dynamoDb from './libs/dynamodb-lib';
 export const main = handler(async (event, context) => {
 	const data = JSON.parse(event.body);
 
-	const players = [data.player1 || null, data.player2 || null, data.player3 || null, data.player4 || null];
-	const scores = [data.score1, data.score2, data.score3, data.score4];
+	const players = data.players;
+	const scores = data.scores;
+	// const players = [data.player1 || null, data.player2 || null, data.player3 || null, data.player4 || null];
+	// const scores = [data.score1, data.score2, data.score3, data.score4];
 	const highestScore = Math.max.apply(Math, scores);
 	const params = {
 		TableName: process.env.tableName,
